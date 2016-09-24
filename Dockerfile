@@ -16,9 +16,7 @@ RUN echo 'America/Sao_Paulo' | tee /etc/timezone \
  && apt-get -y autoremove \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* \
-
- && /usr/bin/curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-RUN cd /var/www/html \
+ && /usr/bin/curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+ && cd /var/www/html \
  && /usr/local/bin/composer install \
  && /bin/chown www-data:www-data -R /var/www/html/storage /var/www/html/bootstrap/cache
