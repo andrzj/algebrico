@@ -37,7 +37,7 @@ class TransactionController extends Controller {
 		$accounts = Account::where('user_id', Auth::user()->id)->lists('account', 'id');
 		$categories = Category::where('user_id', Auth::user()->id)->lists('category', 'id');
 		$subcategories = Subcategory::where('user_id', Auth::user()->id)->lists('subcategory', 'id');
-		$types = Type::where('user_id', Auth::user()->id)->lists('type', 'id');
+		$types = Type::lists('type', 'id');
 		$vendors = Vendor::where('user_id', Auth::user()->id)->select('id as value', 'vendor as text')->orderBy('text')->get();
 		$bookmarks = Bookmark::where('user_id', Auth::user()->id)->get();
 

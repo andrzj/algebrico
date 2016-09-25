@@ -16,7 +16,7 @@ class TypeController extends Controller {
 	 */
 	public function index()
 	{
-		$types = Type::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(10);
+		$types = Type::orderBy('id', 'desc')->paginate(10);
 
 		return view('types.index', compact('types'));
 	}
@@ -42,7 +42,6 @@ class TypeController extends Controller {
 		$type = new Type();
 
 		$type->type = $request->input("type");
-		$type->user_id = Auth::user()->id;
 
 		$type->save();
 
@@ -106,5 +105,4 @@ class TypeController extends Controller {
 
 		return redirect()->route('types.index')->with('message', 'Item deleted successfully.');
 	}
-
 }
