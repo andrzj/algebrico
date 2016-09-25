@@ -24,11 +24,18 @@ ALGÉBRICO works both in a standard installation (under apache), or via Docker
 
 `
 $ /usr/bin/curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+`
+
+`
 $ cd /var/www/html # This is the directory you put the source code
+`
+
+`
 $ /usr/local/bin/composer install
- `
+`
 
 4) Import the tables to the database
+
 `
 $ php artisan migrate:refresh --seed
 `
